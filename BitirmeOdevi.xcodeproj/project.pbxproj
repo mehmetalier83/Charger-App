@@ -13,6 +13,15 @@
 		1B1329A028FC984500EC969B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B13299F28FC984500EC969B /* Preview Assets.xcassets */; };
 		1B1329A228FC984500EC969B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1329A128FC984500EC969B /* Persistence.swift */; };
 		1B1329A528FC984500EC969B /* BitirmeOdevi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B1329A328FC984500EC969B /* BitirmeOdevi.xcdatamodeld */; };
+		1B2E36592920E70100A03AFD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E36582920E70100A03AFD /* Product.swift */; };
+		1B2E365B2920FA0700A03AFD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E365A2920FA0700A03AFD /* HomeViewModel.swift */; };
+		1B4C04082900AB0E009609C7 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C04072900AB0E009609C7 /* LoginPage.swift */; };
+		1B4C040A2900AB1E009609C7 /* LoginPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C04092900AB1E009609C7 /* LoginPageModel.swift */; };
+		1B4C040C2900AFDC009609C7 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C040B2900AFDC009609C7 /* CustomCorners.swift */; };
+		1B78E38C2909A03600C24E15 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78E38B2909A03600C24E15 /* MainPage.swift */; };
+		1B78E38F2909B0FB00C24E15 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78E38E2909B0FB00C24E15 /* Home.swift */; };
+		1B856F02292115C8007F4E77 /* MoreProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B856F01292115C8007F4E77 /* MoreProductView.swift */; };
+		1BAE6AB729000BFE00FBD576 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE6AB629000BFE00FBD576 /* OnboardingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +32,15 @@
 		1B13299F28FC984500EC969B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B1329A128FC984500EC969B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		1B1329A428FC984500EC969B /* BitirmeOdevi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BitirmeOdevi.xcdatamodel; sourceTree = "<group>"; };
+		1B2E36582920E70100A03AFD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		1B2E365A2920FA0700A03AFD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1B4C04072900AB0E009609C7 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		1B4C04092900AB1E009609C7 /* LoginPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageModel.swift; sourceTree = "<group>"; };
+		1B4C040B2900AFDC009609C7 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		1B78E38B2909A03600C24E15 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		1B78E38E2909B0FB00C24E15 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		1B856F01292115C8007F4E77 /* MoreProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductView.swift; sourceTree = "<group>"; };
+		1BAE6AB629000BFE00FBD576 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +73,9 @@
 		1B13299728FC984400EC969B /* BitirmeOdevi */ = {
 			isa = PBXGroup;
 			children = (
+				1B78E390290AB2FE00C24E15 /* Model */,
+				1B4C04062900AAFF009609C7 /* ViewModel */,
+				1BAE6AB529000BDC00FBD576 /* View */,
 				1B13299828FC984400EC969B /* BitirmeOdeviApp.swift */,
 				1B13299A28FC984400EC969B /* ContentView.swift */,
 				1B13299C28FC984500EC969B /* Assets.xcassets */,
@@ -71,6 +92,44 @@
 				1B13299F28FC984500EC969B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1B4C04062900AAFF009609C7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1B4C04092900AB1E009609C7 /* LoginPageModel.swift */,
+				1B2E365A2920FA0700A03AFD /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1B78E38D2909B0E900C24E15 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				1B78E38E2909B0FB00C24E15 /* Home.swift */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
+		1B78E390290AB2FE00C24E15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B2E36582920E70100A03AFD /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1BAE6AB529000BDC00FBD576 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B78E38D2909B0E900C24E15 /* TabViews */,
+				1BAE6AB629000BFE00FBD576 /* OnboardingScreen.swift */,
+				1B4C04072900AB0E009609C7 /* LoginPage.swift */,
+				1B4C040B2900AFDC009609C7 /* CustomCorners.swift */,
+				1B78E38B2909A03600C24E15 /* MainPage.swift */,
+				1B856F01292115C8007F4E77 /* MoreProductView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +202,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAE6AB729000BFE00FBD576 /* OnboardingScreen.swift in Sources */,
 				1B1329A528FC984500EC969B /* BitirmeOdevi.xcdatamodeld in Sources */,
+				1B78E38F2909B0FB00C24E15 /* Home.swift in Sources */,
+				1B78E38C2909A03600C24E15 /* MainPage.swift in Sources */,
+				1B4C040A2900AB1E009609C7 /* LoginPageModel.swift in Sources */,
+				1B2E36592920E70100A03AFD /* Product.swift in Sources */,
 				1B1329A228FC984500EC969B /* Persistence.swift in Sources */,
+				1B856F02292115C8007F4E77 /* MoreProductView.swift in Sources */,
+				1B2E365B2920FA0700A03AFD /* HomeViewModel.swift in Sources */,
 				1B13299B28FC984400EC969B /* ContentView.swift in Sources */,
+				1B4C040C2900AFDC009609C7 /* CustomCorners.swift in Sources */,
+				1B4C04082900AB0E009609C7 /* LoginPage.swift in Sources */,
 				1B13299928FC984400EC969B /* BitirmeOdeviApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
