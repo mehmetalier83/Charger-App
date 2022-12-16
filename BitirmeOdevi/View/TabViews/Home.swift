@@ -14,21 +14,23 @@ struct Home: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 15) {
                 // Arama Kutucuğu
-                HStack(spacing: 15) {
-                    Image(systemName: "magnifyingglass")
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                    TextField("Arama", text: .constant(""))
-                        .disabled(true)
+                ZStack{
+                    if homeData.searchActivated{
+                        SearchBar()
+                    }
+                    else{
+                        SearchBar()
+                            .matchedGeometryEffect(id: "SEARCHBAR", in: animation)
+                    }
                 }
-                .padding(.vertical, 12)
-                .padding(.horizontal, 12)
-                .background(
-                    Capsule()
-                        .strokeBorder(Color.gray, lineWidth: 0.8)
-                )
                 .frame(width: getRect().width / 1.6)
                 .padding(.horizontal, 25)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    withAnimation(.easeInOut){
+                        homeData.searchActivated = true
+                    }
+                }
                 Text("Online Sipariş Ver\n Aynı Gün Kargoda")
                     .font(.custom("AmericanTypewriter-Bold", fixedSize: 28))
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -83,7 +85,7 @@ struct Home: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         //MARK: UPDATİNG DATA WHEEVER TAB CHANGES
         .onChange(of:homeData.productType) { newValue in
-            homeData.filteProductByType()
+            homeData.filterProductByType()
         }
         //Preview Issue
         .sheet(isPresented: $homeData.showMoreProductsOnType) {
@@ -91,9 +93,39 @@ struct Home: View {
         } content: {
             MoreProductView()
         }
+        //Displaying Search View
+        .overlay {
+            ZStack{
+                if homeData.searchActivated{
+                    SearchView(animation: animation)
+                        .environmentObject(homeData)
+                }
+            }
+        }
         
         
     }
+    //Since we're adding matched geometry effect
+    //avoiding code replication
+    @ViewBuilder
+    func SearchBar()->some View{
+        HStack(spacing: 15) {
+            Image(systemName: "magnifyingglass")
+                .font(.title2)
+                .foregroundColor(.gray)
+            TextField("Arama", text: .constant(""))
+                .textCase(.lowercase)
+                .disableAutocorrection(true)
+                
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 12)
+        .background(
+            Capsule()
+                .strokeBorder(Color.gray, lineWidth: 0.8)
+        )
+    }
+    
     @ViewBuilder
     func ProductCardView(product : Product)-> some View{
         VStack(spacing: 10){
@@ -130,6 +162,7 @@ struct Home: View {
         )
          
     }
+
 
     @ViewBuilder
     func ProductTypeView(type: ProductType) -> some View {

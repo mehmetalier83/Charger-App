@@ -15,9 +15,11 @@
 		1B1329A528FC984500EC969B /* BitirmeOdevi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B1329A328FC984500EC969B /* BitirmeOdevi.xcdatamodeld */; };
 		1B2E36592920E70100A03AFD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E36582920E70100A03AFD /* Product.swift */; };
 		1B2E365B2920FA0700A03AFD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E365A2920FA0700A03AFD /* HomeViewModel.swift */; };
+		1B4602EF2922D9DD00B5FA45 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4602EE2922D9DD00B5FA45 /* SearchView.swift */; };
 		1B4C04082900AB0E009609C7 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C04072900AB0E009609C7 /* LoginPage.swift */; };
 		1B4C040A2900AB1E009609C7 /* LoginPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C04092900AB1E009609C7 /* LoginPageModel.swift */; };
 		1B4C040C2900AFDC009609C7 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C040B2900AFDC009609C7 /* CustomCorners.swift */; };
+		1B59CCCA294D1B7700B2E626 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B59CCC9294D1B7700B2E626 /* StaggeredGrid.swift */; };
 		1B78E38C2909A03600C24E15 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78E38B2909A03600C24E15 /* MainPage.swift */; };
 		1B78E38F2909B0FB00C24E15 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78E38E2909B0FB00C24E15 /* Home.swift */; };
 		1B856F02292115C8007F4E77 /* MoreProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B856F01292115C8007F4E77 /* MoreProductView.swift */; };
@@ -34,9 +36,11 @@
 		1B1329A428FC984500EC969B /* BitirmeOdevi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BitirmeOdevi.xcdatamodel; sourceTree = "<group>"; };
 		1B2E36582920E70100A03AFD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1B2E365A2920FA0700A03AFD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1B4602EE2922D9DD00B5FA45 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		1B4C04072900AB0E009609C7 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		1B4C04092900AB1E009609C7 /* LoginPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageModel.swift; sourceTree = "<group>"; };
 		1B4C040B2900AFDC009609C7 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		1B59CCC9294D1B7700B2E626 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 		1B78E38B2909A03600C24E15 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		1B78E38E2909B0FB00C24E15 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		1B856F01292115C8007F4E77 /* MoreProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductView.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				1B4C040B2900AFDC009609C7 /* CustomCorners.swift */,
 				1B78E38B2909A03600C24E15 /* MainPage.swift */,
 				1B856F01292115C8007F4E77 /* MoreProductView.swift */,
+				1B4602EE2922D9DD00B5FA45 /* SearchView.swift */,
+				1B59CCC9294D1B7700B2E626 /* StaggeredGrid.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAE6AB729000BFE00FBD576 /* OnboardingScreen.swift in Sources */,
+				1B59CCCA294D1B7700B2E626 /* StaggeredGrid.swift in Sources */,
 				1B1329A528FC984500EC969B /* BitirmeOdevi.xcdatamodeld in Sources */,
 				1B78E38F2909B0FB00C24E15 /* Home.swift in Sources */,
 				1B78E38C2909A03600C24E15 /* MainPage.swift in Sources */,
@@ -212,6 +219,7 @@
 				1B856F02292115C8007F4E77 /* MoreProductView.swift in Sources */,
 				1B2E365B2920FA0700A03AFD /* HomeViewModel.swift in Sources */,
 				1B13299B28FC984400EC969B /* ContentView.swift in Sources */,
+				1B4602EF2922D9DD00B5FA45 /* SearchView.swift in Sources */,
 				1B4C040C2900AFDC009609C7 /* CustomCorners.swift in Sources */,
 				1B4C04082900AB0E009609C7 /* LoginPage.swift in Sources */,
 				1B13299928FC984400EC969B /* BitirmeOdeviApp.swift in Sources */,

@@ -25,7 +25,7 @@ struct Product:Identifiable,Hashable{
 // Ürün Tipleri
 
 enum ProductType : String,CaseIterable{
-    case Wearable = "Akıllı Saatler"
+    case Wearable = "Giyilebilir Ürünler"
     case Laptops = "Laptoplar"
     case Phones = "Telefonlar"
     case Tablets = "Tabletler"
