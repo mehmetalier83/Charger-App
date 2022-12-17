@@ -54,7 +54,7 @@ class HomeViewModel: ObservableObject {
         searchCancellable = $searchText.removeDuplicates()
             .debounce(for: 0.5, scheduler: RunLoop.main)
             .sink(receiveValue: { str in
-                if str != ""{
+                if str != "" {
                     self.filterProductBySearch()
                 }else{
                     self.searchedProducts = nil

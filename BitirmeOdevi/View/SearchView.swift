@@ -50,6 +50,7 @@ struct SearchView: View {
             
             if let products = homeData.searchedProducts{
                 if products.isEmpty{
+          //MARK: Sonuç Yok ÇALIŞMIYOR
                     //Sonuç yok
                     VStack(spacing: 10){
                         Image("sonucyok")
@@ -79,7 +80,7 @@ struct SearchView: View {
                                 .fontWeight(.semibold)
                                 
                             //Staggered Grid
-                            StaggeredGrid(columns: 2,spacing: 20, list: products) { product in
+                            StaggeredGrid(columns: 2,spacing: 40, list: products) { product in
                                 //CardView
                                 ProductCardView(product: product)
                             }
