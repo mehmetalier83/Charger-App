@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Home: View {
-    @Namespace var animation
+    var animation : Namespace.ID
+    @EnvironmentObject var sharedData : SharedDataModel
     @StateObject var homeData: HomeViewModel = HomeViewModel()
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -129,9 +130,19 @@ struct Home: View {
     @ViewBuilder
     func ProductCardView(product : Product)-> some View{
         VStack(spacing: 10){
-            Image(product.productImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            ZStack{
+                if sharedData.showDetailProduct{
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+             
+                }else{
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "\(product.id)IMAGE", in: animation)
+                }
+            }
                 .frame(width: getRect().width/2.5,height: getRect().width / 2.5)
             
             //Resmin görünüşünü taşıttık
@@ -160,7 +171,12 @@ struct Home: View {
                 .opacity(0.1)
                 .cornerRadius(26)
         )
-         
+        .onTapGesture {
+            withAnimation {
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
     }
 
 
@@ -203,6 +219,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        MainPage()
     }
 }

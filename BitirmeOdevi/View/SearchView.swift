@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     var animation: Namespace.ID
     @EnvironmentObject var homeData: HomeViewModel
+    @EnvironmentObject var sharedData : SharedDataModel
     @FocusState var starTF : Bool
     var body: some View {
         VStack(spacing: 0) {
@@ -21,6 +22,8 @@ struct SearchView: View {
                         homeData.searchActivated = false
                     }
                     homeData.searchText = ""
+                    //RESET
+                    sharedData.fromSearchPage = false
                 } label: {
                     Image(systemName: "arrow.left")
                         .font(.title2)
@@ -107,46 +110,62 @@ struct SearchView: View {
             }
         }
     }
-}
-@ViewBuilder
-func ProductCardView(product : Product)-> some View{
-    VStack(spacing: 10){
-        Image(product.productImage)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-          
-        //Resmin görünüşünü taşıttık
-        
-            .offset(y:-50)
-            .padding(.bottom,-50)
-        
-        Text(product.title)
-            .font(.custom("AmericanTypewriter-Bold", fixedSize: 18))
-            .fontWeight(.semibold)
-            .padding(.top)
-        Text(product.subtitle)
-            .font(.custom("AmericanTypewriter-Bold", fixedSize: 14))
-            .fontWeight(.semibold)
-            .foregroundColor(Color.gray)
-        Text(product.price)
-            .font(.custom("AmericanTypewriter-Bold", fixedSize: 16))
-            .fontWeight(.bold)
-            .padding(.top,5)
-            .foregroundColor(Color("mor"))
+    @ViewBuilder
+    func ProductCardView(product : Product)-> some View{
+        VStack(spacing: 10){
+            ZStack{
+                if sharedData.showDetailProduct{
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+             
+                }else{
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "\(product.id)SEARCH", in: animation)
+                }
+            }
+            //Resmin görünüşünü taşıttık
+            
+                .offset(y:-50)
+                .padding(.bottom,-50)
+            
+            Text(product.title)
+                .font(.custom("AmericanTypewriter-Bold", fixedSize: 18))
+                .fontWeight(.semibold)
+                .padding(.top)
+            Text(product.subtitle)
+                .font(.custom("AmericanTypewriter-Bold", fixedSize: 14))
+                .fontWeight(.semibold)
+                .foregroundColor(Color.gray)
+            Text(product.price)
+                .font(.custom("AmericanTypewriter-Bold", fixedSize: 16))
+                .fontWeight(.bold)
+                .padding(.top,5)
+                .foregroundColor(Color("mor"))
+        }
+        .padding(.horizontal,20)
+        .padding(.bottom,22)
+        .background(
+            Color("mor")
+                .opacity(0.1)
+                .cornerRadius(26)
+        )
+        .padding(.top,20)
+        .onTapGesture {
+            withAnimation {
+                sharedData.fromSearchPage = true
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
     }
-    .padding(.horizontal,20)
-    .padding(.bottom,22)
-    .background(
-        Color("mor")
-            .opacity(0.1)
-            .cornerRadius(26)
-    )
-    .padding(.top,20)
-     
 }
+
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        MainPage()
     }
 }

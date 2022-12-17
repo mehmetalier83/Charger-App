@@ -25,6 +25,8 @@
 		1B78E38F2909B0FB00C24E15 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78E38E2909B0FB00C24E15 /* Home.swift */; };
 		1B856F02292115C8007F4E77 /* MoreProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B856F01292115C8007F4E77 /* MoreProductView.swift */; };
 		1BAE6AB729000BFE00FBD576 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE6AB629000BFE00FBD576 /* OnboardingScreen.swift */; };
+		1BEA4353294DD1EB00AF2861 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA4352294DD1EB00AF2861 /* ProductDetailView.swift */; };
+		1BEA4355294DD24000AF2861 /* SharedDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA4354294DD24000AF2861 /* SharedDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		1B78E38E2909B0FB00C24E15 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		1B856F01292115C8007F4E77 /* MoreProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductView.swift; sourceTree = "<group>"; };
 		1BAE6AB629000BFE00FBD576 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		1BEA4352294DD1EB00AF2861 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		1BEA4354294DD24000AF2861 /* SharedDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 			children = (
 				1B4C04092900AB1E009609C7 /* LoginPageModel.swift */,
 				1B2E365A2920FA0700A03AFD /* HomeViewModel.swift */,
+				1BEA4354294DD24000AF2861 /* SharedDataModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				1B856F01292115C8007F4E77 /* MoreProductView.swift */,
 				1B4602EE2922D9DD00B5FA45 /* SearchView.swift */,
 				1B59CCC9294D1B7700B2E626 /* StaggeredGrid.swift */,
+				1BEA4352294DD1EB00AF2861 /* ProductDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,7 +219,9 @@
 			files = (
 				1BAE6AB729000BFE00FBD576 /* OnboardingScreen.swift in Sources */,
 				1B59CCCA294D1B7700B2E626 /* StaggeredGrid.swift in Sources */,
+				1BEA4355294DD24000AF2861 /* SharedDataModel.swift in Sources */,
 				1B1329A528FC984500EC969B /* BitirmeOdevi.xcdatamodeld in Sources */,
+				1BEA4353294DD1EB00AF2861 /* ProductDetailView.swift in Sources */,
 				1B78E38F2909B0FB00C24E15 /* Home.swift in Sources */,
 				1B78E38C2909A03600C24E15 /* MainPage.swift in Sources */,
 				1B4C040A2900AB1E009609C7 /* LoginPageModel.swift in Sources */,
