@@ -7,24 +7,22 @@
 
 import SwiftUI
 
-//Ürün Model
+// Ürün Model
 
-struct Product:Identifiable,Hashable{
-    
+struct Product: Identifiable, Hashable {
     var id = UUID().uuidString
-    var type : ProductType
-    var title : String
-    var subtitle : String
-    var description : String = ""
-    var price : String
-    var productImage : String = ""
-    var quantity : Int = 1
-    
+    var type: ProductType
+    var title: String
+    var subtitle: String
+    var description: String = ""
+    var price: String
+    var productImage: String = ""
+    var quantity: Int = 1
 }
 
 // Ürün Tipleri
 
-enum ProductType : String,CaseIterable{
+enum ProductType: String, CaseIterable {
     case Wearable = "Giyilebilir Ürünler"
     case Laptops = "Laptoplar"
     case Phones = "Telefonlar"

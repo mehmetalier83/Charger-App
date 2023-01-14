@@ -9,12 +9,12 @@ import SwiftUI
 
 class LoginPageModel: ObservableObject {
     // Login Properties
-    
+
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var showPassword: Bool = false
     // Register Properties
-    
+
     @Published var registerUser: Bool = false
     @Published var re_enter_password: String = ""
     @Published var showReEnterPassword: Bool = false

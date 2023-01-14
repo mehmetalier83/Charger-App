@@ -15,7 +15,7 @@ struct LoginPage: View {
                 .font(.custom("AmericanTypewriter-Bold", fixedSize: 46))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(height: getRect().height / 3.5)
+                .frame(height: getRect().height / 4)
                 .padding()
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 20) {

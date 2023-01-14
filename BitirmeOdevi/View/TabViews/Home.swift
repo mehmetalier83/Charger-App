@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct Home: View {
-    var animation : Namespace.ID
-    @EnvironmentObject var sharedData : SharedDataModel
-    @StateObject var homeData: HomeViewModel = HomeViewModel()
+    var animation: Namespace.ID
+    @EnvironmentObject var sharedData: SharedDataModel
+    @StateObject var homeData: HomeViewModel = .init()
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 15) {
                 // Arama Kutucuğu
-                ZStack{
-                    if homeData.searchActivated{
+                ZStack {
+                    if homeData.searchActivated {
                         SearchBar()
                     }
-                    else{
+                    else {
                         SearchBar()
                             .matchedGeometryEffect(id: "SEARCHBAR", in: animation)
                     }
@@ -28,7 +28,7 @@ struct Home: View {
                 .padding(.horizontal, 25)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    withAnimation(.easeInOut){
+                    withAnimation(.easeInOut) {
                         homeData.searchActivated = true
                     }
                 }
@@ -37,7 +37,7 @@ struct Home: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top)
                     .padding(.horizontal, 15)
-                
+
                 // ÜrÜnler Tabı
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 15) {
@@ -48,68 +48,63 @@ struct Home: View {
                     .padding(.horizontal, 20)
                 }
                 .padding(.top, 15)
-                
-                //Ürünler Sayfası
-                ScrollView(.horizontal,showsIndicators: false){
-                    HStack(spacing: 15){
-                        ForEach(homeData.filteredProducts){product in
-                            //ürün sepet ekranı
+
+                // Ürünler Sayfası
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 15) {
+                        ForEach(homeData.filteredProducts) { product in
+                            // ürün sepet ekranı
                             ProductCardView(product: product)
                         }
                     }
-                    .padding(.horizontal,25)
+                    .padding(.horizontal, 25)
                     .padding(.bottom)
-                    .padding(.top,80)
+                    .padding(.top, 80)
                 }
-                .padding(.top,30)
+                .padding(.top, 30)
                 // daha fazla buton için
-                Button{
+                Button {
                     homeData.showMoreProductsOnType.toggle()
-                }label: {
-                    
-                    Label{
+                } label: {
+                    Label {
                         Image(systemName: "arrow.right")
-                    }icon: {
+                    } icon: {
                         Text("Daha fazlasını Gör")
                     }
                     .font(.custom("AmericanTypewriter-Bold", fixedSize: 16).bold())
                     .foregroundColor(Color("mor"))
-                    
                 }
-                .frame(maxWidth: .infinity,alignment: .trailing)
+                .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing)
-                .padding(.top,10)
-                
+                .padding(.top, 10)
             }
             .padding(.vertical)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //MARK: UPDATİNG DATA WHEEVER TAB CHANGES
-        .onChange(of:homeData.productType) { newValue in
+
+
+        .onChange(of: homeData.productType) { _ in
             homeData.filterProductByType()
         }
-        //Preview Issue
-        .sheet(isPresented: $homeData.showMoreProductsOnType) {
-            
-        } content: {
+        // Preview Issue
+        .sheet(isPresented: $homeData.showMoreProductsOnType) {} content: {
             MoreProductView()
         }
-        //Displaying Search View
+        // Displaying Search View
         .overlay {
-            ZStack{
-                if homeData.searchActivated{
+            ZStack {
+                if homeData.searchActivated {
                     SearchView(animation: animation)
                         .environmentObject(homeData)
                 }
             }
         }
-        
-        
     }
-    //Since we're adding matched geometry effect
-    //avoiding code replication
+
+    // Since we're adding matched geometry effect
+    // avoiding code replication
     @ViewBuilder
-    func SearchBar()->some View{
+    func SearchBar() -> some View {
         HStack(spacing: 15) {
             Image(systemName: "magnifyingglass")
                 .font(.title2)
@@ -117,7 +112,6 @@ struct Home: View {
             TextField("Arama", text: .constant(""))
                 .textCase(.lowercase)
                 .disableAutocorrection(true)
-                
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 12)
@@ -126,30 +120,30 @@ struct Home: View {
                 .strokeBorder(Color.gray, lineWidth: 0.8)
         )
     }
-    
+
     @ViewBuilder
-    func ProductCardView(product : Product)-> some View{
-        VStack(spacing: 10){
-            ZStack{
-                if sharedData.showDetailProduct{
+    func ProductCardView(product: Product) -> some View {
+        VStack(spacing: 10) {
+            ZStack {
+                if sharedData.showDetailProduct {
                     Image(product.productImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-             
-                }else{
+                }
+                else {
                     Image(product.productImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .matchedGeometryEffect(id: "\(product.id)IMAGE", in: animation)
                 }
             }
-                .frame(width: getRect().width/2.5,height: getRect().width / 2.5)
-            
-            //Resmin görünüşünü taşıttık
-            
-                .offset(y:-80)
-                .padding(.bottom,-80)
-            
+            .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
+
+            // Resmin görünüşünü taşıttık
+
+            .offset(y: -80)
+            .padding(.bottom, -80)
+
             Text(product.title)
                 .font(.custom("AmericanTypewriter-Bold", fixedSize: 18))
                 .fontWeight(.semibold)
@@ -161,11 +155,11 @@ struct Home: View {
             Text(product.price)
                 .font(.custom("AmericanTypewriter-Bold", fixedSize: 16))
                 .fontWeight(.bold)
-                .padding(.top,5)
+                .padding(.top, 5)
                 .foregroundColor(Color("mor"))
         }
-        .padding(.horizontal,20)
-        .padding(.bottom,22)
+        .padding(.horizontal, 20)
+        .padding(.bottom, 22)
         .background(
             Color("mor")
                 .opacity(0.1)
@@ -178,7 +172,6 @@ struct Home: View {
             }
         }
     }
-
 
     @ViewBuilder
     func ProductTypeView(type: ProductType) -> some View {
@@ -200,21 +193,18 @@ struct Home: View {
                             Capsule()
                                 .fill(Color("mor"))
                                 .frame(height: 2)
-                                .matchedGeometryEffect(id:"PRODUCTTAB", in: animation)
-                                .padding(.top,10)
+                                .matchedGeometryEffect(id: "PRODUCTTAB", in: animation)
+                                .padding(.top, 10)
                         }
-                        else{
-                           Capsule()
+                        else {
+                            Capsule()
                                 .fill(Color.clear)
                                 .frame(height: 2)
-                            
                         }
                     }
                 }
         }
     }
-  
-    
 }
 
 struct Home_Previews: PreviewProvider {

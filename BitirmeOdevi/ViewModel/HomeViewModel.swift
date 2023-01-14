@@ -5,8 +5,8 @@
 //  Created by PRO10010 on 13.11.2022.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var productType: ProductType = .Wearable
@@ -14,11 +14,9 @@ class HomeViewModel: ObservableObject {
     // Örnek Ürünler
     @Published var products: [Product] = [
         Product(type: .Wearable, title: "Apple Watch 6", subtitle: "Series 6 Red", price: "₺5000", productImage: "applewatch6"),
-        Product(type: .Wearable, title: "Apple Watch 7", subtitle: "Ultra : Beyaz", price: "₺5000", productImage: "applewatch7"),
-        Product(type: .Wearable, title: "Apple Watch 3", subtitle: "Ultra : Beyaz", price: "₺5000", productImage: "applewatch3"),
-        Product(type: .Wearable, title: "Apple Max Kulaklık", subtitle: "Max : Siyah", price: "₺5000", productImage: "applemaxsiyah"),
-        Product(type: .Laptops, title: "Apple iMac", subtitle: "1 TB ", price: "₺51000", productImage: "appleimac"),
-        Product(type: .Laptops, title: "Apple iMac", subtitle: "2 TB ", price: "₺51000", productImage: "appleimac2"),
+        Product(type: .Wearable, title: "Apple Watch 7", subtitle: "Ultra : Beyaz", price: "₺2000", productImage: "applewatch7"),
+        Product(type: .Wearable, title: "Apple Watch 3", subtitle: "Ultra : Beyaz", price: "₺3000", productImage: "applewatch3"),
+        Product(type: .Wearable, title: "Apple Max Kulaklık", subtitle: "Max : Siyah", price: "₺17000", productImage: "applemaxsiyah"),
         Product(type: .Phones, title: "Apple İphone 12 Mini", subtitle: "64 Gb ", price: "₺3000", productImage: "iphone12mini64"),
         Product(type: .Phones, title: "Apple İphone 12", subtitle: "64 Gb ", price: "₺4000", productImage: "iphone1264gb"),
         Product(type: .Phones, title: "Apple İphone Se", subtitle: "64 Gb ", price: "₺2700", productImage: "iphonese64"),
@@ -56,7 +54,7 @@ class HomeViewModel: ObservableObject {
             .sink(receiveValue: { str in
                 if str != "" {
                     self.filterProductBySearch()
-                }else{
+                } else {
                     self.searchedProducts = nil
                 }
             })
@@ -67,28 +65,29 @@ class HomeViewModel: ObservableObject {
             let results = self.products
                 .lazy
                 .filter { product in
-                   return product.type == self.productType
+                    product.type == self.productType
                 }
                 // İlk gösterim limiti
                 .prefix(4)
             DispatchQueue.main.async {
-                self.filteredProducts = results.compactMap ({ product in
-                   return  product
-                })
+                self.filteredProducts = results.compactMap { product in
+                    product
+                }
             }
         }
     }
+
     func filterProductBySearch() {
         DispatchQueue.global(qos: .userInteractive).async {
             let results = self.products
                 .lazy
                 .filter { product in
-                    return product.title.lowercased().contains(self.searchText.lowercased())
+                    product.title.lowercased().contains(self.searchText.lowercased())
                 }
             DispatchQueue.main.async {
-                self.searchedProducts = results.compactMap ({ product in
-                  return  product
-                })
+                self.searchedProducts = results.compactMap { product in
+                    product
+                }
             }
         }
     }

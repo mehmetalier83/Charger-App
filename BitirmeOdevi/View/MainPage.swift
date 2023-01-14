@@ -10,7 +10,7 @@ import SwiftUI
 struct MainPage: View {
     // Current Tab
     @State var currentTab: Tab = .Home
-    @StateObject var sharedData : SharedDataModel = SharedDataModel()
+    @StateObject var sharedData: SharedDataModel = .init()
     // Hiding Tab
     @Namespace var animation
     init() {
@@ -24,47 +24,49 @@ struct MainPage: View {
                 Home(animation: animation)
                     .environmentObject(sharedData)
                     .tag(Tab.Home)
-                Text("Favoriler")
+                LikedPage()
+                    .environmentObject(sharedData)
                     .tag(Tab.Liked)
-               ProfilePage()
+                ProfilePage()
                     .tag(Tab.Profile)
-                Text("Sepet")
+                CartPage()
+                    .environmentObject(sharedData)
                     .tag(Tab.Cart)
             }
-            //Custom Tab Bar
-            HStack(spacing: 0){
-                ForEach(Tab.allCases,id: \.self){tab in
-                    Button{
+            // Custom Tab Bar
+            HStack(spacing: 0) {
+                ForEach(Tab.allCases, id: \.self) { tab in
+                    Button {
                         currentTab = tab
                     } label: {
                         Image(tab.rawValue)
                             .resizable()
                             .renderingMode(.template)
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 24,height: 24)
-                        // shadow ekliyoruz
+                            .frame(width: 24, height: 24)
+                            // shadow ekliyoruz
                             .background(
-                            Color("mor")
-                                .opacity(0.1)
-                                .cornerRadius(5)
-                                .blur(radius: 5)
-                                .padding(-7)
-                                .opacity(currentTab == tab ? 1: 0)
+                                Color("mor")
+                                    .opacity(0.1)
+                                    .cornerRadius(5)
+                                    .blur(radius: 5)
+                                    .padding(-7)
+                                    .opacity(currentTab == tab ? 1 : 0)
                             )
                             .frame(maxWidth: .infinity)
                             .foregroundColor(currentTab == tab ? Color("mor") : Color.black.opacity(0.3))
                     }
                 }
             }
-            .padding([.horizontal,.bottom])
-            .padding(.bottom,10)
+            .padding([.horizontal, .bottom])
+            .padding(.bottom, 10)
         }
-        
+
         .background().ignoresSafeArea()
         .overlay(
-            ZStack{
-                //Detail Page
-                if let product = sharedData.detailProduct,sharedData.showDetailProduct{
+            ZStack {
+                // Detail Page
+                if let product = sharedData.detailProduct, sharedData.showDetailProduct {
                     ProductDetailView(product: product, animation: animation)
                         .environmentObject(sharedData)
                         .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
@@ -81,9 +83,9 @@ struct MainPage_Previews: PreviewProvider {
 }
 
 // Tab Seçenekleri
-enum Tab: String,CaseIterable{
-    case Home = "Home"
-    case Liked = "Liked"
-    case Profile = "Profile"
-    case Cart = "Cart"
+enum Tab: String, CaseIterable {
+    case Home
+    case Liked
+    case Profile
+    case Cart
 }

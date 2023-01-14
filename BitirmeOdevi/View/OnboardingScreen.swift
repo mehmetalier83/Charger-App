@@ -21,7 +21,7 @@ struct OnboardingScreen: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Button {
-                withAnimation{
+                withAnimation {
                     showLoginPage = true
                 }
             } label: {

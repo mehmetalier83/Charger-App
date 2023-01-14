@@ -9,17 +9,15 @@ import SwiftUI
 
 struct MoreProductView: View {
     var body: some View {
-        
-        VStack{
+        VStack {
             Text("Daha Fazla Ürün")
                 .font(.custom("AmericanTypewriter-Bold", fixedSize: 24).bold())
                 .foregroundColor(.black)
-                .frame(maxWidth: .infinity,alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding()
-        .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .topLeading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background().ignoresSafeArea()
-        
     }
 }
 
